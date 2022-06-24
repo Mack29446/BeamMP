@@ -212,6 +212,7 @@ local function onUpdate(dt)
 	-- Workaround for worldReadyState not being set properly if there are no vehicles
 	serverConnection.onCameraHandlerSetInitial()
 	extensions.hook('onCameraHandlerSet')
+	core_gamestate.setGameState('multiplayer', 'multiplayer', 'multiplayer') -- This is added to set the UI elements
   end
 end
 
