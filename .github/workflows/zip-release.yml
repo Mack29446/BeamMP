@@ -1,7 +1,7 @@
 name: Create Archive Test
 on: [push]
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -11,3 +11,8 @@ jobs:
         type: 'zip'
         filename: 'release.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
+    - name: Upload Release
+    uses: ncipollo/release-action@v1
+    with:
+      artifacts: "release.zip"
+      token: ${{ secrets.GITHUB_TOKEN }}
